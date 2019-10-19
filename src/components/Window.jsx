@@ -9,16 +9,17 @@ class Window extends React.Component {
     constructor( props ) {
         super( props );
         this.state = {
-            content: ''
+            content: '',
+            currentPage: ''
         }
     }
 
-    componentDidUpdate() {
-        ( this.state.content === '' ) ?
+    componentDidUpdate( nextProps ) {
+        ( this.state.currentPage !== nextProps.page ) ?
             fetch( this.props.path )
                 .then( response => response.json() )
                 .then( data => {
-                    this.setState( { content: data[this.props.page] } );
+                    this.setState( { content: data } );
                 } ) : console.log( 'already updated' );
     }
 
@@ -29,15 +30,35 @@ class Window extends React.Component {
                     ( () => {
                         switch ( this.props.page ) {
                             case 'home':
-                                return <Home content={this.state.content} />;
+                                return <Home
+                                    content={this.state.content[this.props.page]}
+                                    page={this.props.page}
+                                />;
+                                break;
                             case 'skills':
-                                return <Skills content={this.state.content} />;
+                                return <Skills
+                                    content={this.state.content[this.props.page]}
+                                    page={this.props.page}
+                                />;
+                                break;
                             case 'projects':
-                                return <Projects content={this.state.content} />;
+                                return <Projects
+                                    content={this.state.content[this.props.page]}
+                                    page={this.props.page}
+                                />;
+                                break;
                             case 'about':
-                                return <About content={this.state.content} />;
+                                return <About
+                                    content={this.state.content[this.props.page]}
+                                    page={this.props.page}
+                                />;
+                                break;
                             case 'contact':
-                                return <Contact content={this.state.content} />;
+                                return <Contact
+                                    content={this.state.content[this.props.page]}
+                                    page={this.props.page}
+                                />;
+                                break;
                             default:
                                 console.log( this.props.page );
                         }

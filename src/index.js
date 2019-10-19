@@ -9,7 +9,7 @@ class App extends React.Component {
     super( props );
     this.state = {
       page: '',
-      content: []
+
     }
     this.switchPage = this.switchPage.bind( this );
   }
@@ -28,7 +28,6 @@ class App extends React.Component {
 
         <Window
           page={this.state.page}
-          content={this.state.content}
           path={'content/all.json'} />
       </>
     );
