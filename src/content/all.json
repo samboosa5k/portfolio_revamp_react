@@ -1,0 +1,77 @@
+{
+    "home": {
+        "title": "Home",
+        "image": null,
+        "layout": "centered",
+        "url": "home",
+        "content": [
+            "Welcome to my humble web-development portfolio.",
+            "Created with love"
+        ]
+    },
+    "skills": {
+        "title": "Skills",
+        "image": null,
+        "layout": "centered",
+        "url": "skills",
+        "content": [
+            "HTML",
+            "CSS",
+            "BOOTSTRAP",
+            "JS",
+            "JQUERY",
+            "PHP",
+            "LARAVEL",
+            "WORDPRESS",
+            "GIT",
+            "PHOTOSHOP",
+            "ILLUSTRATOR",
+            "GOOGLE-ANALYTICS",
+            "ADWORDS",
+            "TAG-MANAGER"
+        ]
+    },
+    "about": {
+        "title": "About Me",
+        "image": "content/img/profile_pic.jpg",
+        "layout": "centered",
+        "url": "about-me",
+        "content": [
+            "Welcome to my humble web-development portfolio page, where you can see the projects I've completed and the ones I'm still working on.",
+            "Having a digital-art and design background, I apply my keen eye for pretty colors and obsessive organization to create amazing websites!",
+            "I also really love my dogs, and am passionate about Pizza, Belgian beer and Scottish whiskey."
+        ]
+    },
+    "projects": {
+        "title": "Projects",
+        "image": [
+            "content/img/project_image.jpg",
+            "content/img/project_image.jpg",
+            "content/img/project_image.jpg",
+            "content/img/project_image.jpg"
+        ],
+        "layout": "grid",
+        "url": "projects",
+        "content": [
+            "Project 1",
+            "Project 2",
+            "Project 3",
+            "Project 4"
+        ]
+    },
+    "contact": {
+        "title": "Git, LinkedIn & Social",
+        "image": [
+            "content/img/contact-icon.jpg",
+            "content/img/contact-icon.jpg",
+            "content/img/contact-icon.jpg"
+        ],
+        "layout": "grid",
+        "url": "git-linkedin-social",
+        "content": [
+            "Git",
+            "LinkedIn",
+            "Instagram"
+        ]
+    }
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import Home from './Home';
 import Skills from './Skills';
 import About from './About';
+import Projects from './Projects';
+import Contact from './Contact';
 
 class Window extends React.Component {
     constructor( props ) {
@@ -12,49 +14,35 @@ class Window extends React.Component {
     }
 
     componentDidUpdate() {
-        console.log( this.props.path );
-        /* ( this.state.content === '' ) ?
+        ( this.state.content === '' ) ?
             fetch( this.props.path )
                 .then( response => response.json() )
                 .then( data => {
-                    const useableData = {
-                        'title': data['title'],
-                        'image': data['image'],
-                        'layout': data['layout'],
-                        'url': data['url'],
-                        'content': data['content'],
-                    };
-                    this.setState( { content: useableData } );
-                } ) : console.log( 'already updated' ); */
+                    this.setState( { content: data[this.props.page] } );
+                } ) : console.log( 'already updated' );
     }
 
     render() {
-
         return (
-
             <>
                 {
-                    ( this.props.page === 'home' ) ?
-                        <Home content={this.state.content} /> :
-                        ( this.props.page === 'skills' ) ?
-                            <Skills content={this.state.content} /> :
-                            <About content={this.state.content} />
+                    ( () => {
+                        switch ( this.props.page ) {
+                            case 'home':
+                                return <Home content={this.state.content} />;
+                            case 'skills':
+                                return <Skills content={this.state.content} />;
+                            case 'projects':
+                                return <Projects content={this.state.content} />;
+                            case 'about':
+                                return <About content={this.state.content} />;
+                            case 'contact':
+                                return <Contact content={this.state.content} />;
+                            default:
+                                console.log( this.props.page );
+                        }
+                    } )()
                 }
-                {/* {
-                    ( this.props.page === 'home' ) ?
-                        <Home content={this.state.content} /> :
-
-                        ( this.props.page === 'skills' ) ?
-                            <Skills content={this.state.content} /> :
-
-                            ( this.props.page === 'about-me' ) ?
-                                <About content={this.state.content} /> :
-
-                                ( this.props.page === 'projects' ) ?
-                                    <Projects content={this.state.content} /> :
-
-                                    <Contact content={this.state.content} />
-                } */}
             </>
         );
     }

@@ -1,36 +1,19 @@
 import React from 'react';
 
-class Window extends React.Component {
+class Projects extends React.Component {
     constructor( props ) {
+        super( props );
         this.props = props;
-    }
-
-    componentDidMount() {
-        //
     }
 
     render() {
         return (
             <>
-                <h1 className="content_title">{this.props.title}</h1>
-                {
-
-
-                    ( this.props.image !== null ) ?
-                        <img src={this.props.image} alt={this.props.url + "_image"} className="content_image" /> :
-                        <>
-                            {
-                                this.props.image.map( ( image, index ) => (
-                                    <img src={image} alt={image[index].url + "_image_" + index} className="content_image" />
-                                ) )
-                            }
-                        </>
-
-
-                }
+                <h1>{this.props.content.title}</h1>
+                <p>{this.props.content.content}</p>
             </>
         );
     }
 }
 
-export default Window;
+export default Projects;

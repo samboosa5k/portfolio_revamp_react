@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Skills extends React.Component {
+class Contact extends React.Component {
     constructor( props ) {
         super( props );
         this.props = props;
@@ -16,4 +16,4 @@ class Skills extends React.Component {
     }
 }
 
-export default Skills;
+export default Contact;
