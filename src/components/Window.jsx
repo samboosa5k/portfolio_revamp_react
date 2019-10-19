@@ -10,17 +10,22 @@ class Window extends React.Component {
         super( props );
         this.state = {
             content: '',
-            currentPage: ''
+            currentPage: '',
         }
     }
 
-    componentDidUpdate( nextProps ) {
-        ( this.state.currentPage !== nextProps.page ) ?
-            fetch( this.props.path )
-                .then( response => response.json() )
-                .then( data => {
-                    this.setState( { content: data } );
-                } ) : console.log( 'already updated' );
+    componentDidMount() {
+        fetch( this.props.path )
+            .then( response => response.json() )
+            .then( data => {
+                this.setState( { content: data, currentPage: this.props.page } );
+            } );
+    }
+
+    componentDidUpdate( prevProps, prevState ) {
+        if ( this.state.currentPage !== this.props.page ) {
+            this.setState( { currentPage: this.props.page } );
+        }
     }
 
     render() {

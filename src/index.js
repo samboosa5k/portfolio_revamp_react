@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor( props ) {
     super( props );
     this.state = {
-      page: '',
+      page: 'home',
 
     }
     this.switchPage = this.switchPage.bind( this );
@@ -16,7 +16,6 @@ class App extends React.Component {
 
   switchPage( pageName ) {
     this.setState( { page: pageName } );
-    console.log( pageName );
   }
 
   render() {
