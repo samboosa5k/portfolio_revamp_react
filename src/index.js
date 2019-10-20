@@ -9,6 +9,7 @@ class App extends React.Component {
     super( props );
     this.state = {
       page: 'home',
+      menuItems: ['home', 'skills', 'projects', 'about', 'contact'],
 
     }
     this.switchPage = this.switchPage.bind( this );
@@ -23,6 +24,7 @@ class App extends React.Component {
       <>
         <Menu
           handleMenu={this.switchPage}
+          menuItems={this.state.menuItems}
         />
 
         <Window
