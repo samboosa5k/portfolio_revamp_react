@@ -1,0 +1,28 @@
+.projects {
+    &-link {
+        text-decoration: none;
+        color: rgb(224, 125, 43);
+    }
+
+    &-title {
+        margin-bottom: 1rem;
+    }
+
+    &-skills {
+        margin-top: 1rem;
+        font-size: 0.75rem;
+        line-height: 1.1rem;
+    }
+
+    &-section {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+
+        &__image {
+            max-width: 128px;
+            height: auto;
+            background-color: black;
+        }
+    }
+}

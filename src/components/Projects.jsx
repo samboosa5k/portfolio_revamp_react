@@ -15,10 +15,34 @@ class Projects extends React.Component {
     }
 
     render() {
+        let windowContent = 'Loading...';
+        if ( this.state.content !== '' ) {
+            windowContent = this.state.content.content.map( ( item, key ) => (
+                <>
+                    <div key={key} className="projects-title">
+                        <p>###############################</p>
+                        <a className="projects-link" href={this.state.content.url[key]}><p>{this.state.content.header[key]}</p></a>
+                        <p>###############################</p>
+                        <div className="projects-skills"><p>SKILLS: {this.state.content.languages[key]}</p></div>
+                    </div>
+                    <div key={key} className="projects-section">
+                        <img className="projects-section__image" src={this.state.content.image[key]} />
+                        <div>
+                            {item.split( "|" ).map( ( elem, key ) => (
+                                <p className="elem">{elem}</p>
+                            ) )}
+
+                        </div>
+                    </div>
+                </>
+            ) )
+        }
+
         return (
             <>
-                <h1>{this.state.content['title']}</h1>
-                <p>{this.state.content['content']}</p>
+                <h4>{this.state.content['title']}</h4>
+                {/* <p>{this.state.content['content']}</p> */}
+                {windowContent}
             </>
         );
     }

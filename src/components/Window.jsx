@@ -4,6 +4,8 @@ import Skills from './Skills';
 import About from './About';
 import Projects from './Projects';
 import Contact from './Contact';
+import TitleBar from './subcomponents/TitleBar';
+import ConsoleText from './subcomponents/ConsoleText';
 
 class Window extends React.Component {
     constructor( props ) {
@@ -22,7 +24,7 @@ class Window extends React.Component {
             } );
     }
 
-    componentDidUpdate( prevProps, prevState ) {
+    componentDidUpdate() {
         if ( this.state.currentPage !== this.props.page ) {
             this.setState( { currentPage: this.props.page } );
         }
@@ -30,46 +32,45 @@ class Window extends React.Component {
 
     render() {
         return (
-            <>
-                {
-                    ( () => {
-                        switch ( this.props.page ) {
-                            case 'home':
-                                return <Home
-                                    content={this.state.content[this.props.page]}
-                                    page={this.props.page}
-                                />;
-                                break;
-                            case 'skills':
-                                return <Skills
-                                    content={this.state.content[this.props.page]}
-                                    page={this.props.page}
-                                />;
-                                break;
-                            case 'projects':
-                                return <Projects
-                                    content={this.state.content[this.props.page]}
-                                    page={this.props.page}
-                                />;
-                                break;
-                            case 'about':
-                                return <About
-                                    content={this.state.content[this.props.page]}
-                                    page={this.props.page}
-                                />;
-                                break;
-                            case 'contact':
-                                return <Contact
-                                    content={this.state.content[this.props.page]}
-                                    page={this.props.page}
-                                />;
-                                break;
-                            default:
-                                console.log( this.props.page );
-                        }
-                    } )()
-                }
-            </>
+            <div className="window">
+                <TitleBar page={this.props.page} />
+                <div className="window__content">
+                    <ConsoleText content={this.state.content['miscellaneous']} />
+                    {
+                        ( () => {
+                            switch ( this.props.page ) {
+                                case 'home':
+                                    return <Home
+                                        content={this.state.content[this.props.page]}
+                                        page={this.props.page}
+                                    />;
+                                case 'skills':
+                                    return <Skills
+                                        content={this.state.content[this.props.page]}
+                                        page={this.props.page}
+                                    />;
+                                case 'projects':
+                                    return <Projects
+                                        content={this.state.content[this.props.page]}
+                                        page={this.props.page}
+                                    />;
+                                case 'about':
+                                    return <About
+                                        content={this.state.content[this.props.page]}
+                                        page={this.props.page}
+                                    />;
+                                case 'contact':
+                                    return <Contact
+                                        content={this.state.content[this.props.page]}
+                                        page={this.props.page}
+                                    />;
+                                default:
+                                    console.log( this.props.page );
+                            }
+                        } )()
+                    }
+                </div>
+            </div>
         );
     }
 }

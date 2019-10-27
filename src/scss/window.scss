@@ -1,0 +1,39 @@
+.window {
+    width: 640px;
+    min-height: 480px;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: outset;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(12, 12, 12);
+
+    &__titleBar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 2rem;
+        padding-left: 0;
+        border-bottom: 1px solid gray;
+        color: white;
+        background-color: black;
+    }
+
+    &__commandLineText {
+        margin-bottom: 1rem;
+        font-size: 0.75rem;
+        line-height: 1.1rem;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        margin: 0 0;
+        border-style: inset 1px solid black;
+    }
+}
+
+.content__title {
+    margin-bottom: 0.5rem;
+}

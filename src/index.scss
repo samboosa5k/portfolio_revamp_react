@@ -1,0 +1,15 @@
+@import './scss/menu.scss';
+@import './scss/window.scss';
+@import './scss/projects.scss';
+@import './scss/contact.scss';
+
+* {
+  margin: 0;
+}
+
+body {
+  background-color: rgb(63, 65, 71);
+  font-family: "Lucida Console", Monaco, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

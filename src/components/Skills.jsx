@@ -14,15 +14,29 @@ class Skills extends React.Component {
             this.setState( { content: this.props.content } ) : console.log( 'Child already has state' );
     }
 
-    componentWillUnmount() {
-        this.setState( { content: '' } )
-    }
+    /*   componentWillUnmount() {
+          this.setState( { content: '' } )
+      }
+   */
 
     render() {
+        let windowContent = 'Loading...';
+        if ( this.state.content !== '' ) {
+            windowContent = this.state.content.content.map( ( item, key ) => (
+                ( item.indexOf( '<' ) === -1 ) ?
+                    <p key="key" style={{
+                        marginLeft: "4rem", color: "rgb( " + ( 255 / key * 4 ) + ", 255," + 255 / key * 10 + " )"
+                    }
+                    } className="content__list" > {item}</p>
+                    :
+                    <p key="key" style={{ color: "white" }} className="content__list" > {item}</p>
+
+            ) )
+        }
         return (
             <>
-                <h1>{this.state.content['title']}</h1>
-                <p>{this.state.content['content']}</p>
+                <h4 className="content__title">{this.state.content['title']}</h4>
+                {windowContent}
             </>
         );
     }

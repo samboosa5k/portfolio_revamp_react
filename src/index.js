@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Window from './components/Window';
 import Menu from './components/Menu';
-import './index.css';
+import './index.scss';
 
 class App extends React.Component {
   constructor( props ) {

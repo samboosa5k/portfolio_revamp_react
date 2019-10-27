@@ -15,10 +15,20 @@ class About extends React.Component {
     }
 
     render() {
+        let windowContent = 'Loading...';
+        if ( this.state.content !== '' ) {
+            windowContent = this.state.content.content.map( ( item, key ) => (
+                <>
+                    <p>{item}</p>
+                </>
+            ) )
+        }
+
         return (
             <>
-                <h1>{this.state.content['title']}</h1>
-                <p>{this.state.content['content']}</p>
+                <h4>{this.state.content['title']}</h4>
+                {/* <p>{this.state.content['content']}</p> */}
+                {windowContent}
             </>
         );
     }
